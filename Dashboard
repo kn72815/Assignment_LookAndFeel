@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top App Dashboard</title>
+    <link href="assets\css\styles.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />     
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><light>Welcome</light></a>
+            </div>
+                    <!-- /.dropdown-alerts -->
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+		<div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>            
+                </ul>
+            </div>
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            Top App <small><small><small><small>The Graphical Summary</small></small></small></small>
+                        </h1>
+						<ol class="breadcrumb">
+	<li><a href="https://www.linkedin.com/in/neeraj-kumar-12836812/">My Profile</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Data_science">Interest</a></li>
+  <li class="active">Analysis Outcome</li>
+</ol>
+                    </div>
+                </div>			
+                <!-- /. ROW  -->
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-green green">
+                            <div class="panel-left pull-left green">
+                                <i class="fa fa-eye fa-5x"></i>
+                                
+                            </div>
+                            <div class="panel-right">
+								<h3>8,457</h3>
+                               <strong> Daily Visits</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-blue">
+                              <div class="panel-left pull-left blue">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+								</div>
+                                
+                            <div class="panel-right">
+							<h3>52,160 </h3>
+                               <strong> Sales</strong>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-red">
+                            <div class="panel-left pull-left red">
+                                <i class="fa fa fa-comments fa-5x"></i>
+                               
+                            </div>
+                            <div class="panel-right">
+							 <h3>15,823 </h3>
+                               <strong> Comments </strong>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-brown">
+                            <div class="panel-left pull-left brown">
+                                <i class="fa fa-users fa-5x"></i>
+                                
+                            </div>
+                            <div class="panel-right">
+							<h3>36,752 </h3>
+                             <strong>No. of Visits</strong>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+		<!-- if you want to add a new row then copy this code till </div> part of this row <div> -->		
+				
+				<div class="row">
+				
+					<!-- copy this code if want to add new chart also need to copy and paste javascript code at bottom of the page -->
+					
+					<div class="col-md-6">
+					<div class="panel panel-default">	
+						<div class="panel-heading">
+							Experience
+						</div>
+						<div class="panel-body">
+							<div id="piechart"></div>
+						</div>
+					</div>  
+					</div>
+					<!-- copy till here for new chart -->
+					
+					<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Performance
+						</div>
+						<div class="panel-body">
+							<div id="curve_chart" style="width: 400px; height: 300px"></div>
+						</div>
+					</div>  
+					</div>			
+					
+				</div> 	
+				
+				
+		
+		<!-- to copy row copy till here -->
+				
+
+				
+	
+               
+							
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script type="text/javascript">
+// Load google charts
+
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Banking', 8],
+  ['Telecom', 2],
+  ['Fraud', 2],
+  ['Insurance', 2],
+  ['Cards', 2]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Domin', 'width':400, 'height':300};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+
+
+</script>
+
+
+
+ <script type="text/javascript">
+// Load google charts
+
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Banking', 8],
+  ['Telecom', 2],
+  ['Fraud', 2],
+  ['Insurance', 2],
+  ['Cards', 2]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Domain', 'width':400, 'height':300};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+  chart.draw(data, options);
+}
+
+
+</script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+</body>
+
+</html>
